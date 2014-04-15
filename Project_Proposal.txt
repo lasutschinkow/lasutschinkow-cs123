@@ -2,3 +2,33 @@ Michael Lasutschinkow
 CS 123
 Project Proposal
 
+
+
+Main idea/question : Based on popular music data, is it possible to build a model 
+that can accurately predict what year a song was released based on the other characteristics of the song?
+
+
+Data : Million Song Dataset ( http://labrosa.ee.columbia.edu/millionsong/ )
+
+Approach to the Data : There are several characteristics of a song that have the potential to be 
+shared by other songs in its year (for example: key, tempo, time signature, etc.), and it is likely that,
+if patterns do exist, some combinations of these characteristics are much better at determining accurate
+predictions than others. In creating a model, different combinations will be tried to see which provide
+the most predictive powere without becoming overly restrictive. Some useful computational tools include 
+multiple passes of MapReduce implementing a k-nearest-neighbors algorithm.
+
+First implementation : For the first implementation of the model, I will use a restricted dataset (both
+in number of songs and metadata fields considered) and will see which combinations of fields from the
+restricted list lead to the best predictive power. The prediction will be : given a song, can we
+predict the year of the song's release based on other relevant characteristics?
+
+Final implementation : A model that takes all songs in the database (or at least all songs for which
+the relevant metadata is available) and an expanded range of metadata fields. The model will test
+various combinations and return those that have the greatest predictive power. It would also be interesting
+to have predictions going both ways : in addition to the year-prediction of the initial model, do any years
+have a "stereotypical" song which can be constructed from the data? It would also be interesting to graph
+the results of nearest-neighbors or clustering algorithms to support these results.
+
+
+
+
