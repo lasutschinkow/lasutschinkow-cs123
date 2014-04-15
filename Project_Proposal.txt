@@ -15,7 +15,8 @@ shared by other songs in its year (for example: key, tempo, time signature, etc.
 if patterns do exist, some combinations of these characteristics are much better at determining accurate
 predictions than others. In creating a model, different combinations will be tried to see which provide
 the most predictive powere without becoming overly restrictive. Some useful computational tools include 
-multiple passes of MapReduce implementing a k-nearest-neighbors algorithm.
+multiple passes of MapReduce implementing a k-nearest-neighbors algorithm, and other statistical 
+calculations using R.
 
 First implementation : For the first implementation of the model, I will use a restricted dataset (both
 in number of songs and metadata fields considered) and will see which combinations of fields from the
