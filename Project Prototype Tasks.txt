@@ -1,0 +1,18 @@
+Project Prototype Tasks : 
+
+
+Daniel - start scraping NYT
+
+return key-val pairs (date : (headline, keywords, description, articleID))
+
+========
+
+Michael - taking key-val pair, return data relating to Wikipedia page hits given 
+
+10-day span - 3 days before, 6 days after
+
+perhaps include statistics about average levels of hits to account for large spikes / long-term trends
+
+========
+
+Lucy - interesting applications for the data
