@@ -1,3 +1,9 @@
+# Lucy Chen
+# CMSC 123000
+# Final Project with Daniel Tracht and Michael Lasutschinkow
+# Functions for graphing data.
+
+
 import matplotlib
 import pylab
 import math
@@ -7,9 +13,7 @@ KEYWORD = 0
 YESTERDAY = 1 #wiki hit counts
 TODAY = 2
 TOMORROW = 3
-
-#this controls the size of the points (which vary by YESTERDAY hit counts)
-#bigger means smaller points
+#this controls the size of the points (which vary by avg hit counts). bigger means smaller points
 SCALEFACTOR = 0.1
 
 class GraphData:
@@ -18,6 +22,9 @@ class GraphData:
         self.y = y
         self.colors = colors
         self.sizes = sizes
+
+# --------------------------------- UTILITIES -------------------------------------
+
 
 #take in day, before-day and produce the number expressing their relationship that we want to use for our graph
 #measures how much attention your article brought in (theoretically)
@@ -45,6 +52,8 @@ def figure_color(keyword):
         #to encode some sort of meaningful continuous information
     return color
 
+# --------------------------------- MAKE GRAPH -----------------------------------
+
 def convert_to_graphdata(data_array):
     x_data = []
     y_data = []
@@ -63,8 +72,6 @@ def convert_to_graphdata(data_array):
     data = GraphData(x_data, y_data, colors, sizes)
     return data
 
-
-
 def makeplot(graphdata):
     #plot points
     matplotlib.pyplot.scatter(graphdata.x, graphdata.y, c=graphdata.colors, s=graphdata.sizes, alpha=0.8)
@@ -80,6 +87,7 @@ def makeplot(graphdata):
     matplotlib.pyplot.xlabel(x_label)
     matplotlib.pyplot.ylabel(y_label)
     matplotlib.pyplot.title("Change in Wikipedia Hits of Relevant Pages after News Exposure")
+    #the placement of these are currently manually set. figure out a better solution later, if necessary.
     matplotlib.pyplot.text(1,-1.3,"spike of interest", size="x-small")
     matplotlib.pyplot.text(1,0.5,"increasing interest", size="x-small")
     matplotlib.pyplot.text(-0.9,-1.3,"progressive disinterest", size="x-small")
@@ -93,9 +101,22 @@ def makeplot(graphdata):
 
     matplotlib.pyplot.show()
 
+# ----------------------------- SAVE/LOAD --------------------------------
+#it could be expensive to make the graph data when you have a big dataset
+#and maybe you just want to tinker around with text labels or something else aesthetic
+#so maybe you want the GraphData object for later!
 
+def savegraphdata(graphdata, filename):
+    f = open(filename, "w")
+    pickle.dump(graphdata, f)
+    f.close()
+    return
 
-
+def loadgraphdata(filename):
+    f = open(filename, "r")
+    graphdata = pickle.load(f)
+    f.close()
+    return graphdata
 
 # -------------------------------- TESTS ---------------------------------
 
@@ -109,7 +130,9 @@ def load_to_data(sourceinfo, data):
     return data #not strictly necessary (lol pointers) but seems like good style
 
 #this file is its own test
+#running this file produces a sample graph
 if __name__=="__main__":
+    SCALEFACTOR = 0.1
     somefakedata = [[0 for i in range(0,10)] for j in range(0,4)] #oversized array so we can easily adjust indices
     sourceinfo = [["cats", 5, 15, 8],
                   ["dogs", 9, 12, 8],
