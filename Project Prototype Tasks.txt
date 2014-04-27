@@ -5,7 +5,7 @@ Daniel - start scraping NYT
 
 return SEMICOLON-separated values :
 
-date ; Headline ; list of keywords separated by commas ; description ; articleID
+Date (preferably M/D/Y separated by '/' but any consistent method is fine) ; Headline ; list of keywords separated by commas ; description ; articleID
 
 ========
 
