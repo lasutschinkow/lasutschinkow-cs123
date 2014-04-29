@@ -4,9 +4,9 @@ Probablistic hits:
 - Build a graph using wikilinks data (in and out links)
 - Calculate hit ratios supposing it were a closed system and everyone surfed at random.
     * Do this with a transition matrix
-    * Should we multiply it by itself until it stabilizes? 
-    * Or take into account the fact that people only look at a few pages before leaving, and do it to that power?
-    * The latter would mean that when we compare, we're really comparing the difference due to two factors: unequal likelihood of starting pages, and unequal likelihood of link follows, which is what we want.
+    ? Should we multiply it by itself until it stabilizes? 
+    ? Or take into account the fact that people only look at a few pages before leaving, and do it to that power?
+    ? The latter would mean that when we compare, we're really comparing the difference due to two factors: unequal likelihood of starting pages, and unequal likelihood of link follows, which is what we want? Is it? IDK I asked Prof Rogers.
 
 Actual hits:
 - The actual hits.
@@ -16,8 +16,9 @@ Comparison step:
 - Take difference between probablistic hits and actual hits
 - Find which pages have the biggest differences (positve and negative)
 - Can we graph this against some second variable?
-
-
+    ? like maybe the inlink/outlink ratio? If you have a low inlink/outlink ratio, that means there aren't a lot of pages that link to you (comparatively speaking), so you must be a favored starting point.
+    ? Would have to calibrate this -- inlink/outlink ratio already affects the probablistic hit calculation
+? Could we somehow separate the "genuinely important" pages, and the pages that simply feed off its importantness?
 
 
 
