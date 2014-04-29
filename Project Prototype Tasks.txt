@@ -3,7 +3,9 @@ Project Prototype Tasks :
 
 Daniel - start scraping NYT
 
-return key-val pairs (date : (headline, keywords, description, articleID))
+return SEMICOLON-separated values :
+
+Date (preferably M/D/Y separated by '/' but any consistent method is fine) ; Headline ; list of keywords separated by commas ; description ; articleID
 
 ========
 
