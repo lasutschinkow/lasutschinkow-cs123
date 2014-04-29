@@ -1,5 +1,5 @@
+CS123, Spring 14
+Project repository for
 Michael Lasutschinkow
-
-CS 123, Spring 14
-
-
+Daniel Tracht
+Lucy Chen
