@@ -221,7 +221,8 @@ def main():
     s = pageRank_simple(Incidence_mx)
     #print s
     #print damped_pageRank_simple(Incidence_mx,DAMPING)
-    T = sumTM(Transitions_mx,10,DAMPING)
+    steps = 10
+    T = sumTM(Transitions_mx,steps,DAMPING)
     H = hitsMx(Hits_list)
     # print H
     n = numHits(Hits_list)
@@ -235,7 +236,7 @@ def main():
     # print "init = "
     # print iProbs
     # print sum_vec(iProbs)
-    print "Percent off: "
+    print "Percent off for K = %d steps: " % (steps)
     print analyze_TM(T,H)
     #print T
 
