@@ -226,15 +226,15 @@ def main():
     # print H
     n = numHits(Hits_list)
     iProbs = initial(T,H,n)
-    print "TM = "
-    print T
-    print "TM.T = "
-    print T.T
-    print "TM.T.I = "
-    print T.T.I
-    print "init = "
-    print iProbs
-    print sum_vec(iProbs)
+    # print "TM = "
+    # print T
+    # print "TM.T = "
+    # print T.T
+    # print "TM.T.I = "
+    # print T.T.I
+    # print "init = "
+    # print iProbs
+    # print sum_vec(iProbs)
     print "Percent off: "
     print analyze_TM(T,H)
     #print T
