@@ -89,14 +89,19 @@ def sumTM(M,N,damp):
         sum_mx += TM
     return sum_mx
 
-# scaleHits: (listof list) -> array
-def scaleHits(hits_list):
-    count = 0
+# hitsMx : (listof list) -> matrix
+def hitsMx(hits_list):
     l = len(hits_list)
+    arr = np.array([[0] for x in range(0,l)])
     for i in range(0,l):
-        for j in range(1,l+1):
-            count+=hits_list[i][j]
-    return count
+        m = len(hits_list[i])
+        for j in range(1,m):
+            arr[i]+=hits_list[i][j]
+    return np.matrix(arr)
+
+# initial = Initial Probability Vector
+def initial(TM, hits):
+    return ((TM.T).I)*hits
 
 
 
@@ -177,10 +182,13 @@ def main():
     # i = linkIndexes(Incidence_mx, 3)
     # print i
     s = pageRank_simple(Incidence_mx)
-    print s
-    print damped_pageRank_simple(Incidence_mx,DAMPING)
-    print sumTM(Transitions_mx,3,DAMPING)
-    #print scaleHits(Hits_list)
+    #print s
+    #print damped_pageRank_simple(Incidence_mx,DAMPING)
+    T = sumTM(Transitions_mx,3,DAMPING)
+    H = hitsMx(Hits_list)
+    # print H
+    iProbs = initial(T,H)
+    print iProbs
 
 
     return 0
