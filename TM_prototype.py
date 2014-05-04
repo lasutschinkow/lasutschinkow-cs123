@@ -188,6 +188,13 @@ def main():
     H = hitsMx(Hits_list)
     # print H
     iProbs = initial(T,H)
+    print "TM = "
+    print T
+    print "TM.T = "
+    print T.T
+    print "TM.T.I = "
+    print T.T.I
+    print "init = "
     print iProbs
 
 
