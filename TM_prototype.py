@@ -99,9 +99,21 @@ def hitsMx(hits_list):
             arr[i]+=hits_list[i][j]
     return np.matrix(arr)
 
+# numHits
+def numHits(hits_list):
+    l = len(hits_list)
+    count = 0
+    for i in range(0,l):
+        m = len(hits_list[i])
+        for j in range(1,m):
+            count+=hits_list[i][j]
+    return count
+
+
+
 # initial = Initial Probability Vector
-def initial(TM, hits):
-    return ((TM.T).I)*hits
+def initial(TM, hits, numTot):
+    return ((TM.T).I)*((1/float(numTot))*hits)
 
 
 
@@ -187,7 +199,8 @@ def main():
     T = sumTM(Transitions_mx,3,DAMPING)
     H = hitsMx(Hits_list)
     # print H
-    iProbs = initial(T,H)
+    n = numHits(Hits_list)
+    iProbs = initial(T,H,n)
     print "TM = "
     print T
     print "TM.T = "
