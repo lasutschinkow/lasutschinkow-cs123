@@ -56,12 +56,12 @@ def prob_N_Steps(M, N):
     return res
         
 
-# graphLinks : Matrix -> array
+# graphLinks_i : Matrix -> array
 # returns an array where every entry
 # is the [# in-links, # out-links]
 # for the corresponding page node
 # Use with Incidence matrix for accurate results
-def graphLinks(M):
+def graphLinks_i(M):
     l = len(M)
     links = np.array([(0,0) for i in range(0,l)])
     for i in range(0,l):
@@ -90,7 +90,7 @@ def linkIndexes(M,j):
 # simple : does not include damping factor or weight by page traffic
 def pageRank_simple(M):
     l = len(M)
-    links = graphLinks(M)
+    links = graphLinks_i(M)
     ranks = np.array([0.0 for x in range(0,l)])
     rk = float(1)/l # all pages have equal weight
     for i in range(0,l):
@@ -113,6 +113,9 @@ def damped_pageRank_simple(M,d):
     return ranks
     
     
+# pageRank_traffic : Matrix -> array
+# pages weighted by traffic (hits) rather than random
+# returns array of pageranks without damping
 
 
 
@@ -128,7 +131,7 @@ def main():
     #print Transitions_mx
     #print(iToj(Transitions_mx,2,0,2))
     #print prob_N_Steps(Transitions_mx,3)
-   # g = graphLinks(Incidence_mx)
+   # g = graphLinks_i(Incidence_mx)
    # print g
    # i = linkIndexes(Incidence_mx, 3)
    # print i
