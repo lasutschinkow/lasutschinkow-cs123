@@ -236,7 +236,8 @@ def main():
     # print "init = "
     # print iProbs
     # print sum_vec(iProbs)
-    print "Percent off for K = %d steps: " % (steps)
+    print " "
+    print "Percent variation from expected data for K = %d steps: " % (steps)
     print analyze_TM(T,H)
     #print T
 
