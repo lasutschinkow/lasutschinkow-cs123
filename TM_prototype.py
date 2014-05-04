@@ -23,6 +23,11 @@ def loadmatrix(fn):
     M = pickle.load(f)
     return M
 
+def sum_over_column(mat,col):
+    return np.sum(mat[:,col])
+
+
+
 # iToj : Matrix int int int -> num
 # returns probability of getting from
 # page i to page j within N steps
@@ -113,10 +118,20 @@ def damped_pageRank_simple(M,d):
     return ranks
     
     
-# pageRank_traffic : Matrix -> array
-# pages weighted by traffic (hits) rather than random
-# returns array of pageranks without damping
-
+# hit_rank : Matrix Matrix int -> array
+# Transition matrix factoring in initial probability weighting
+def hit_rank(initialProbs, trans_mx, Nsteps):
+    l = len(trans_mx)
+    hitRanks = np.array([0.0 for x  in range(0,l)])
+    if(Nsteps>=1):
+        for i in range(0,l):
+            hitRanks[i]+= np.sum((initialProbs * trans_mx)[i])
+    for n in range(2,Nsteps):
+        trans_mx *= trans_mx
+        for i in range(0,l):
+            hitRanks[i]+=np.sum((initialProbs * trans_mx)[i])
+    return hitRanks
+        
 
 
 
