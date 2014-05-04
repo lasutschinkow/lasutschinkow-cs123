@@ -78,6 +78,31 @@ def graphLinks_i(M):
     return links
 
 
+
+# sumTM : Matrix int num -> Matrix
+def sumTM(M,N,damp):
+    l = len(M)
+    sum_arr = np.array([[0.0 for i in range(0,l)] for j in range(0,l)])
+    sum_mx = np.matrix(sum_arr)
+    for n in range(1,N+1):
+        TM = prob_N_Steps((damp*M),n)
+        sum_mx += TM
+    return sum_mx
+
+# scaleHits: (listof list) -> array
+def scaleHits(hits_list):
+    count = 0
+    l = len(hits_list)
+    for i in range(0,l):
+        for j in range(1,l+1):
+            count+=hits_list[i][j]
+    return count
+
+
+
+
+
+
 # linkIndexes : Matrix int -> list(int)
 # returns a list of nodes with links to given index
 def linkIndexes(M,j):
@@ -136,23 +161,26 @@ def hit_rank(initialProbs, trans_mx, Nsteps):
 
 
 
+
 # ========= MAIN =========
 
 def main():
-    Hits_mx = loadmatrix(HITS)
+    Hits_list = loadmatrix(HITS)
     Incidence_mx = loadmatrix(INCIDENCE)
     Transitions_mx = loadmatrix(TRANSITIONS)
-    #print type(Transitions_mx)
-    #print Transitions_mx
-    #print(iToj(Transitions_mx,2,0,2))
-    #print prob_N_Steps(Transitions_mx,3)
-   # g = graphLinks_i(Incidence_mx)
-   # print g
-   # i = linkIndexes(Incidence_mx, 3)
-   # print i
+    # print type(Transitions_mx)
+    # print Transitions_mx
+    # print(iToj(Transitions_mx,2,0,2))
+    # print prob_N_Steps(Transitions_mx,3)
+    # g = graphLinks_i(Incidence_mx)
+    # print g
+    # i = linkIndexes(Incidence_mx, 3)
+    # print i
     s = pageRank_simple(Incidence_mx)
     print s
     print damped_pageRank_simple(Incidence_mx,DAMPING)
+    print sumTM(Transitions_mx,3,DAMPING)
+    #print scaleHits(Hits_list)
 
 
     return 0
