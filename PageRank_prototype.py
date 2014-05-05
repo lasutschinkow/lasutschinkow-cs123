@@ -9,6 +9,7 @@ import sys
 import numpy as np
 import pickle
 import math
+import make_visual.py
 
 # Test data for prototype
 
@@ -206,7 +207,12 @@ def main():
     n = numHits(Hits_list)
     # print " "
     opt = find_optimal_k(Transitions_mx,H,DAMPING)
-    
+    dv = opt[0]
+    tmSum = opt[1]
+    kstr = opt[2]
+    print kstr
+
+
 
     # read to file
     FN = "TestData/"
@@ -217,7 +223,18 @@ def main():
     pickle.dump(opt[1],f)
     f.close()
     
-    print opt[2]
+    
+    # make graph
+    d = {}
+    for i in range(0,50):
+        d["%d" %(i)] = i
+    nodelist = []
+    for i in range(0,50):
+        nodelist.append("%d" %(i))
+
+
+    make_visual.do_makegraph(50,nodelist,d,dv,tmSum,"Model_Results/graph.png",)
+    
 
 
 
