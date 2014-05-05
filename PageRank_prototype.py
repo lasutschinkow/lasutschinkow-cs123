@@ -185,7 +185,7 @@ def find_optimal_k(transMx,hitsMx,damping):
         # There is a hell of a lot of room for optimization in this code
 
     s = "The optimum number of iterations to get variation of less than %f is K = %d" %(within,k)
-    return (dv2,s,sum2)
+    return (dv2,sum2,s) # Diff Vec, Final Transition Matrix sum after k iterations, string
         
     
 
@@ -206,8 +206,18 @@ def main():
     n = numHits(Hits_list)
     # print " "
     opt = find_optimal_k(Transitions_mx,H,DAMPING)
-    print opt[0]
-    # print opt[1]
+    
+
+    # read to file
+    FN = "TestData/"
+    f = open(FN + "diff_vec.txt", "w")
+    pickle.dump(opt[0],f)
+    f.close()
+    f = open(FN + "tmSum.txt", "w")
+    pickle.dump(opt[1],f)
+    f.close()
+    
+    print opt[2]
 
 
 
