@@ -9,7 +9,7 @@ import sys
 import numpy as np
 import pickle
 import math
-import make_visual.py
+import make_visual
 
 # Test data for prototype
 
@@ -233,7 +233,7 @@ def main():
         nodelist.append("%d" %(i))
 
 
-    make_visual.do_makegraph(50,nodelist,d,dv,tmSum,"Model_Results/graph.png",)
+    make_visual.do_makegraph(50,nodelist,d,dv,tmSum,"Model_Results/graph.png","")
     
 
 
