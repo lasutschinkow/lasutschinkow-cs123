@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/tests
+END
+test_relabel.py
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/tests/test_relabel.py
+END
+test_convert_scipy.py
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/tests/test_convert_scipy.py
+END
+test_convert_numpy.py
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/tests/test_convert_numpy.py
+END
+benchmark.py
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/tests/benchmark.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/tests/__init__.py
+END
+test.py
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/tests/test.py
+END
+test_convert.py
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/tests/test_convert.py
+END
+test_exceptions.py
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/tests/test_exceptions.py
+END

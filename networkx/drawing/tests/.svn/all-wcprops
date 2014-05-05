@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing/tests
+END
+test_layout.py
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing/tests/test_layout.py
+END
+test_pydot.py
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing/tests/test_pydot.py
+END
+test_agraph.py
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing/tests/test_agraph.py
+END
+test_pylab.py
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing/tests/test_pylab.py
+END

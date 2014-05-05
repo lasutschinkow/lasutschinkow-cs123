@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests
+END
+test_betweenness_centrality.py
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_betweenness_centrality.py
+END
+test_betweenness_centrality_subset.py
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_betweenness_centrality_subset.py
+END
+test_current_flow_closeness.py
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_current_flow_closeness.py
+END
+test_katz_centrality.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_katz_centrality.py
+END
+test_communicability.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_communicability.py
+END
+test_eigenvector_centrality.py
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_eigenvector_centrality.py
+END
+test_current_flow_betweenness_centrality.py
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_current_flow_betweenness_centrality.py
+END
+test_degree_centrality.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_degree_centrality.py
+END
+test_closeness_centrality.py
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_closeness_centrality.py
+END
+test_load_centrality.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_load_centrality.py
+END
+test_current_flow_betweenness_centrality_subset.py
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/centrality/tests/test_current_flow_betweenness_centrality_subset.py
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/bipartite/tests
+END
+test_centrality.py
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/bipartite/tests/test_centrality.py
+END
+test_basic.py
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/bipartite/tests/test_basic.py
+END
+test_cluster.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/bipartite/tests/test_cluster.py
+END
+test_spectral_bipartivity.py
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/bipartite/tests/test_spectral_bipartivity.py
+END
+test_project.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/bipartite/tests/test_project.py
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing
+END
+nx_pylab.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing/nx_pylab.py
+END
+layout.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing/layout.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing/__init__.py
+END
+nx_pydot.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing/nx_pydot.py
+END
+nx_agraph.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/drawing/nx_agraph.py
+END

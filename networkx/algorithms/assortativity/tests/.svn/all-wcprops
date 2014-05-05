@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/assortativity/tests
+END
+test_mixing.py
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/assortativity/tests/test_mixing.py
+END
+test_connectivity.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/assortativity/tests/test_connectivity.py
+END
+test_pairs.py
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/assortativity/tests/test_pairs.py
+END
+test_correlation.py
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/assortativity/tests/test_correlation.py
+END
+test_neighbor_degree.py
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/assortativity/tests/test_neighbor_degree.py
+END
+base_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/assortativity/tests/base_test.py
+END

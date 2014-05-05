@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests
+END
+test_distance_measures.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_distance_measures.py
+END
+test_mst.py
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_mst.py
+END
+test_vitality.py
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_vitality.py
+END
+test_smetric.py
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_smetric.py
+END
+test_swap.py
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_swap.py
+END
+test_distance_regular.py
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_distance_regular.py
+END
+test_euler.py
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_euler.py
+END
+test_hierarchy.py
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_hierarchy.py
+END
+test_cluster.py
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_cluster.py
+END
+test_cycles.py
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_cycles.py
+END
+test_clique.py
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_clique.py
+END
+test_boundary.py
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_boundary.py
+END
+test_mis.py
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_mis.py
+END
+test_core.py
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_core.py
+END
+test_simple_paths.py
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_simple_paths.py
+END
+test_matching.py
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_matching.py
+END
+test_graphical.py
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_graphical.py
+END
+test_block.py
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_block.py
+END
+test_dag.py
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_dag.py
+END
+test_richclub.py
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/tests/test_richclub.py
+END
