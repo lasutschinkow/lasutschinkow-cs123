@@ -184,20 +184,20 @@ def sum_vec(v):
 
 
 # Analyze transition matrix sum, compare to actual hits data
-def analyze_TM(TM_sum, hits_mx):
+def diff_vec(TM_sum, hits_mx):
     l = len(TM_sum)
     total_real_hits = sum_vec(hits_mx).tolist()[0][0]
     proj_hits = np.array([[0] for i in range(0,l)])
     for i in range(0,l):
         proj_hits[i]+=sum_over_column(TM_sum,i)
-    percent_off = np.array([[0.0] for i in range(0,l)])
+    difference_vector = np.array([[0.0] for i in range(0,l)])
     total_proj_hits = sum_vec(proj_hits).tolist()[0]
     for i in range(0,l):
         proj = float(proj_hits[i][0])/total_proj_hits
         actual = float(hits_mx[i].tolist()[0][0])/total_real_hits
         diff = float(actual-proj)/proj
-        percent_off[i]+=diff
-    return percent_off
+        difference_vector[i]+=diff
+    return difference_vector
         
 
 
@@ -238,7 +238,7 @@ def main():
     # print sum_vec(iProbs)
     print " "
     print "Percent variation from expected data for K = %d steps: " % (steps)
-    print analyze_TM(T,H)
+    print diff_vec(T,H)
     #print T
 
 
