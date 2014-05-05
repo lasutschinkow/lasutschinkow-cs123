@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation
+END
+dominating_set.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/dominating_set.py
+END
+independent_set.py
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/independent_set.py
+END
+matching.py
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/matching.py
+END
+vertex_cover.py
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/vertex_cover.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/__init__.py
+END
+ramsey.py
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/ramsey.py
+END
+clique.py
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/clique.py
+END

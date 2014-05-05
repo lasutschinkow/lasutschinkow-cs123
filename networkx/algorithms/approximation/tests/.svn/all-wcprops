@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/tests
+END
+test_independent_set.py
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/tests/test_independent_set.py
+END
+test_matching.py
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/tests/test_matching.py
+END
+test_vertex_cover.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/tests/test_vertex_cover.py
+END
+test_ramsey.py
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/tests/test_ramsey.py
+END
+test_clique.py
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/tests/test_clique.py
+END
+test_dominating_set.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/chylu-cs123-spr-14/!svn/ver/124/finalproject-localcopy/networkx/algorithms/approximation/tests/test_dominating_set.py
+END

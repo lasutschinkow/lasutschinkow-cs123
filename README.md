@@ -1,4 +1,7 @@
-### CS 123 Project
+## Graphing Wikipedia
 
-### Lucy Chen
-### Michael lasutschinkow
+##### CS 123 Project
+
+###### Lucy Chen
+###### Michael lasutschinkow
+
