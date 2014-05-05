@@ -210,7 +210,9 @@ def main():
     dv = opt[0]
     tmSum = opt[1]
     kstr = opt[2]
+    print " "
     print kstr
+    print " "
 
 
 
@@ -233,12 +235,12 @@ def main():
         nodelist.append([str(i)])
 
 
-    print nodelist
-    print " "
-    print d
+    # print nodelist
+    # print " "
+    # print d
 
 
-    make_visual.do_makegraph(50,nodelist,d,dv,tmSum,"Model_Results/graph2.png","")
+    make_visual.do_makezoomgraph(20,50,nodelist,d,dv,tmSum,"Model_Results/graph2.png","")
     
 
 
