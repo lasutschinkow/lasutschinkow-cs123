@@ -227,13 +227,18 @@ def main():
     # make graph
     d = {}
     for i in range(0,50):
-        d["%d" %(i)] = i
+        d[str(i)] = i
     nodelist = []
     for i in range(0,50):
-        nodelist.append("%d" %(i))
+        nodelist.append([str(i)])
 
 
-    make_visual.do_makegraph(50,nodelist,d,dv,tmSum,"Model_Results/graph.png","")
+    print nodelist
+    print " "
+    print d
+
+
+    make_visual.do_makegraph(50,nodelist,d,dv,tmSum,"Model_Results/graph2.png","")
     
 
 
