@@ -167,7 +167,7 @@ def drawgraph(graphobj, filename):
 
 #    position = nx.graphviz_layout(graphobj.graph,prog='neato')
 #    position = nx.spectral_layout(graphobj.graph)
-    position = nx.spring_layout(graphobj.graph)
+    position = nx.spring_layout(graphobj.graph, weight='weight')
     nx.draw_networkx(graphobj.graph, pos=position, nodelist=graphobj.nodes_ordered, node_color=graphobj.nodeweights, cmap='BlueRed') #forget about edge colorings for now, they don't look very good
     plt.savefig(filename)
     plt.show()
@@ -207,7 +207,7 @@ if __name__=="__main__":
     linkarray = [['A01'],['A02'],['A03'],['A04'],['A05']]
     diff_vector = [-10, -4, -0, 8, 20]
     transitions = [[0.5, 0.5,   0,   0,   0],
-                   [  0, .23, .27, .33, .17],
+                   [  0,  .1,  .8,  .1,  .0],
                    [  0,   0,   0,   0,   1],
                    [0.2, 0.2, 0.2, 0.2, 0.2],
                    [0.33, 0.33, 0.33, 0,  0]]
