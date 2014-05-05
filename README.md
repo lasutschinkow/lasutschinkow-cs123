@@ -3,7 +3,7 @@
 ##### CS 123 Project
 
 ###### Lucy Chen
-###### Michael lasutschinkow
+###### Michael Lasutschinkow
 
 
 ##### How to Run the Code
