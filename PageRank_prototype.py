@@ -1,6 +1,8 @@
 # Michael Lasutschinkow
 # CMSC 123000 Final Project with Lucy Chen
 #
+# PageRank_prototype.py
+#
 #
 
 import sys
@@ -80,6 +82,8 @@ def graphLinks_i(M):
 
 
 # sumTM : Matrix int num -> Matrix
+# returns the matrix sum of (damp * M)^i
+# for i between 1 and N
 def sumTM(M,N,damp):
     l = len(M)
     sum_arr = np.array([[0.0 for i in range(0,l)] for j in range(0,l)])
@@ -90,6 +94,7 @@ def sumTM(M,N,damp):
     return sum_mx
 
 # hitsMx : (listof list) -> matrix
+# Turns the initial hits list into an Nx1 matrix
 def hitsMx(hits_list):
     l = len(hits_list)
     arr = np.array([[0] for x in range(0,l)])
@@ -99,7 +104,7 @@ def hitsMx(hits_list):
             arr[i]+=hits_list[i][j]
     return np.matrix(arr)
 
-# numHits
+# numHits : sums over the list of hits, returns total
 def numHits(hits_list):
     l = len(hits_list)
     count = 0
@@ -109,72 +114,7 @@ def numHits(hits_list):
             count+=hits_list[i][j]
     return count
 
-
-
-# initial = Initial Probability Vector
-def initial(TM, hits, numTot):
-    return ((TM.T).I)*((1/float(numTot))*hits)
-
-
-
-
-
-
-# linkIndexes : Matrix int -> list(int)
-# returns a list of nodes with links to given index
-def linkIndexes(M,j):
-    l = len(M)
-    indexes = []
-    for i in range(0,l):
-        if((j != i) and (M[i,j]>0)):
-            indexes.append(i)
-    return indexes
-
-
-# pageRank_simple : Matrix -> array
-# returns array where each element is the pageRank
-# corresponding to the page at that index
-# simple : does not include damping factor or weight by page traffic
-def pageRank_simple(M):
-    l = len(M)
-    links = graphLinks_i(M)
-    ranks = np.array([0.0 for x in range(0,l)])
-    rk = float(1)/l # all pages have equal weight
-    for i in range(0,l):
-        numIn = links[i][0]
-        indices = linkIndexes(M,i)
-        pagerank = 0
-        for index in indices:
-            pagerank += (rk / float(links[index][1]))
-        ranks[i]=pagerank
-    return ranks
-        
-        
-# damped_pageRank_simple : Matrix num -> array
-# damped page rank, does NOT factor in weight by page traffic    
-def damped_pageRank_simple(M,d):
-    N = len(M)
-    ranks = pageRank_simple(M)
-    for i in range(0,N):
-        ranks[i] = (1-d)/N + d*ranks[i]
-    return ranks
-    
-    
-# hit_rank : Matrix Matrix int -> array
-# Transition matrix factoring in initial probability weighting
-def hit_rank(initialProbs, trans_mx, Nsteps):
-    l = len(trans_mx)
-    hitRanks = np.array([0.0 for x  in range(0,l)])
-    if(Nsteps>=1):
-        for i in range(0,l):
-            hitRanks[i]+= np.sum((initialProbs * trans_mx)[i])
-    for n in range(2,Nsteps):
-        trans_mx *= trans_mx
-        for i in range(0,l):
-            hitRanks[i]+=np.sum((initialProbs * trans_mx)[i])
-    return hitRanks
-        
-
+# sum_vec : sums over 1-dimensional vector of numbers
 def sum_vec(v):
     num = 0.0
     l = len(v)
@@ -183,7 +123,10 @@ def sum_vec(v):
     return num
 
 
-# Analyze transition matrix sum, compare to actual hits data
+# diff_vec : Matrix Matrix -> Vector
+# Takes in a summed transition matrix and hits matrix
+# Calculates the percent difference between expected hits (by model)
+# and actual hits (by data), returns a vector of the values
 def diff_vec(TM_sum, hits_mx):
     l = len(TM_sum)
     total_real_hits = sum_vec(hits_mx).tolist()[0][0]
@@ -259,36 +202,9 @@ def main():
     Hits_list = loadmatrix(HITS)
     Incidence_mx = loadmatrix(INCIDENCE)
     Transitions_mx = loadmatrix(TRANSITIONS)
-    # print type(Transitions_mx)
-    # print Transitions_mx
-    # print(iToj(Transitions_mx,2,0,2))
-    # print prob_N_Steps(Transitions_mx,3)
-    # g = graphLinks_i(Incidence_mx)
-    # print g
-    # i = linkIndexes(Incidence_mx, 3)
-    # print i
-    s = pageRank_simple(Incidence_mx)
-    #print s
-    #print damped_pageRank_simple(Incidence_mx,DAMPING)
-    steps = 100
-    #T = sumTM(Transitions_mx,steps,DAMPING)
     H = hitsMx(Hits_list)
-    # print H
     n = numHits(Hits_list)
-    # iProbs = initial(T,H,n)
-    # print "TM = "
-    # print T
-    # print "TM.T = "
-    # print T.T
-    # print "TM.T.I = "
-    # print T.T.I
-    # print "init = "
-    # print iProbs
-    # print sum_vec(iProbs)
     print " "
-    # print "Percent variation from expected data for K = %d steps: " % (steps)
-    # print diff_vec(T,H)
-    # print T
     opt = find_optimal_k(Transitions_mx,H,DAMPING)
     print opt[0]
     print opt[1]
