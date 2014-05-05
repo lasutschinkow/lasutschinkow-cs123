@@ -185,7 +185,7 @@ def find_optimal_k(transMx,hitsMx,damping):
         # There is a hell of a lot of room for optimization in this code
 
     s = "The optimum number of iterations to get variation of less than %f is K = %d" %(within,k)
-    return (dv2,s)
+    return (dv2,s,sum2)
         
     
 
@@ -204,10 +204,10 @@ def main():
     Transitions_mx = loadmatrix(TRANSITIONS)
     H = hitsMx(Hits_list)
     n = numHits(Hits_list)
-    print " "
+    # print " "
     opt = find_optimal_k(Transitions_mx,H,DAMPING)
     print opt[0]
-    print opt[1]
+    # print opt[1]
 
 
 
