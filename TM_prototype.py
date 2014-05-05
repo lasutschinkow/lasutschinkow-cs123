@@ -195,7 +195,7 @@ def analyze_TM(TM_sum, hits_mx):
     for i in range(0,l):
         proj = float(proj_hits[i][0])/total_proj_hits
         actual = float(hits_mx[i].tolist()[0][0])/total_real_hits
-        diff = float(proj-actual)/actual
+        diff = float(actual-proj)/proj
         percent_off[i]+=diff
     return percent_off
         
