@@ -195,10 +195,59 @@ def diff_vec(TM_sum, hits_mx):
     for i in range(0,l):
         proj = float(proj_hits[i][0])/total_proj_hits
         actual = float(hits_mx[i].tolist()[0][0])/total_real_hits
-        diff = float(actual-proj)/proj
+        x = proj if (proj != 0) else 1
+        diff = float(actual-proj)/x
         difference_vector[i]+=diff
     return difference_vector
         
+
+
+# Compare difference vectors
+# used by find_optimal_k
+def compare_vec(dvec1, dvec2):
+    diff = 0
+    l = len(dvec1)
+    for i in range(0,l):
+        v1 = dvec1[i].tolist()[0]
+        v2 = dvec2[i].tolist()[0]
+        d = abs(v2-v1)
+        if(d > diff):
+            diff = d
+    return diff
+
+
+
+# Attempt to let the computer find optimal number of iterations
+# want : the difference vector has no entries changing by more than .001 between iterations
+def find_optimal_k(transMx,hitsMx,damping):
+    k = 2
+    within = .05
+    # WARNING : do not set within smaller than .05 in this current setup
+    # I tried .01 and it took 70 iterations and about 5 minutes
+
+    sum1 = sumTM(transMx,1,damping)
+    sum2 = sumTM(transMx,2,damping)
+    dv1 = diff_vec(sum1,hitsMx)
+    dv2 = diff_vec(sum2,hitsMx)
+
+    while(compare_vec(dv1,dv2)>=within):
+        k+=1
+        sum1 = sum2
+        dv1 = dv2
+        sum2 = sumTM(transMx,k,damping)
+        dv2 = diff_vec(sum2,hitsMx)
+
+
+
+        # There is a hell of a lot of room for optimization in this code
+
+    s = "The optimum number of iterations to get variation of less than %f is K = %d" %(within,k)
+    return (dv2,s)
+        
+    
+
+
+
 
 
 
@@ -221,12 +270,12 @@ def main():
     s = pageRank_simple(Incidence_mx)
     #print s
     #print damped_pageRank_simple(Incidence_mx,DAMPING)
-    steps = 10
-    T = sumTM(Transitions_mx,steps,DAMPING)
+    steps = 100
+    #T = sumTM(Transitions_mx,steps,DAMPING)
     H = hitsMx(Hits_list)
     # print H
     n = numHits(Hits_list)
-    iProbs = initial(T,H,n)
+    # iProbs = initial(T,H,n)
     # print "TM = "
     # print T
     # print "TM.T = "
@@ -237,9 +286,16 @@ def main():
     # print iProbs
     # print sum_vec(iProbs)
     print " "
-    print "Percent variation from expected data for K = %d steps: " % (steps)
-    print diff_vec(T,H)
-    #print T
+    # print "Percent variation from expected data for K = %d steps: " % (steps)
+    # print diff_vec(T,H)
+    # print T
+    opt = find_optimal_k(Transitions_mx,H,DAMPING)
+    print opt[0]
+    print opt[1]
+
+
+
+
 
 
     return 0
