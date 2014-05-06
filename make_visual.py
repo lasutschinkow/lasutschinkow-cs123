@@ -4,7 +4,19 @@
 # * * * To use this:
 # first import this file.
 # then call the function:
-#   do_makegraph(number of nodes, array of links (or some other array with node IDs), dictionary of node IDs to keywords, the difference vector, any transition matrix, filename for saving the image, non-empty filename to save a pickle under that filename)
+#   do_makegraph(threshold between 0 and 1 [0 to graph all, 1 to graph only greatest deviating nodes], number of nodes, array of links (or some other array with node IDs), dictionary of node IDs to keywords, the difference vector, any transition matrix, filename for saving the image, non-empty filename to save a pickle under that filename)
+#
+# Or in short,
+# do_makegraph(threshold, number_nodes, link_array, keyword_dictionary, diff_vector, transition_mtx, save_to_image_filename, save_to_pickle_filename)
+#
+# That will create a graph image containing all nodes with a scaled deviation beyond the threshold value.
+#
+# Alternatively, you can "zoom in" on a node and view that node and all its
+# immediate neighbors:
+#
+# do_makezoomgraph(node_to_focus_on, number_nodes, link_array, keyword_dictionary, diff_vector, transition_mtx, save_to_image_filename, save_to_pickle_filename)
+#
+# Notice that the syntax is the same except for the first parameter.
 #
 # To avoid remaking the graph data, you can load a previously created pickle and call drawgraph(unpickled graph object, filename for saving the image).
 #
@@ -21,20 +33,20 @@ import pickle
 # ------------------------------------- Pieces used to make Graph ---------------------------------------------
 
 SERIAL_INDEX = 0 #index of the page's ID in the linkarray array.
-THRESHOLD = 0.3 #minimum magnitude necessary to make it on the plot. put between 0 (show all) and 1 (show only max)
 
+# makes an object that holds everything you need to make a graph
 class graphobj:
     def __init__(self, graph, nodes_ordered, nodeweights, edgeweights, vmin, vmax):
-        self.graph = graph
-        self.nodes_ordered = nodes_ordered #also determines which we plot at all
+        self.graph = graph #this is a networkx graph object
+        self.nodes_ordered = nodes_ordered #necessary to fix order of nodes (to match with nodeweights)
         self.nodeweights = nodeweights
-        self.edgeweights = edgeweights
+        self.edgeweights = edgeweights #probably unnecessary, keeping it here just in case
         self.vmax = vmax
         self.vmin = vmin
 
-def makecolormap():
 # adapted from http://matplotlib.org/examples/pylab_examples/custom_cmap.html
-
+# sets up a dictionary object to be converted into a colormap
+def makecolormap():
     cdict = {'red':  ((0.0, 1.0, 1.0),
                        (0.5, 1.0, 1.0),
                        (1.0, 0.0, 0.0)),
@@ -50,11 +62,19 @@ def makecolormap():
 
     return cdict
 
+# gets the min and max values for a vector and tests to ensure non-degeneracy
 def getminmax(diff_vector):
     vmax = max(diff_vector)
     vmin = min(diff_vector)
     #make nodeweights from diff_vector (nodeweights has values from 0 to 1)
     #we want to do a linear mapping, vmin -> 0, 0 -> 1/2, vmax -> 1
+
+    # Since the difference vector is all about deviation from an expectation,
+    # and the expected and actual have the same average, it's literally impossible
+    # not for the difference vector to be all positive or all negative. The only
+    # possible case degenerate case is all 0's, which isn't
+    # going to happen. Still, I have this test here just in case something
+    # goes wrong in these early test stages.
     if vmin > 0:
         print "Impossible! vmin > 0!"
         sys.exit()
@@ -64,6 +84,9 @@ def getminmax(diff_vector):
     #else nondegenerate
     return (vmax, vmin)
 
+# scales a value in the difference vector down to a value between 0 and 1,
+# with 1/2 representing the original 0,
+# so that it can correspond with our intuitive red-green color scheme
 def scalevalue(unscaled, vmin, vmax):
     if unscaled < 0:
         magnitude = (float(unscaled) / vmin)
@@ -73,8 +96,8 @@ def scalevalue(unscaled, vmin, vmax):
         scaled = 0.5 + 0.5 * magnitude
     return (magnitude, scaled)
 
-
-def makegraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx):
+# make a graph with all nodes that deviate beyond a certain threshold
+def makegraph(threshold, num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx):
     #the ordering of keywords is preserved: first row in linkarray is the first node... etc.
     #keyword_dict maps linkarray serial numbers to human readable names
 
@@ -82,7 +105,6 @@ def makegraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx):
 #    G = nx.DiGraph() #initializes empty graph 
     G = nx.Graph()
 
-    #I think I need to keep labels in separate vectors
     edgeweights = []
 
     rv = getminmax(diff_vector)
@@ -99,12 +121,12 @@ def makegraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx):
 
         rv = scalevalue(unscaled, vmin, vmax)
 
-        if rv[0] > THRESHOLD: #rv[0] is magnitude
+        if rv[0] > threshold: #rv[0] is magnitude
             nodeweights.append(rv[1]) #rv[1] is scaled value
             nodes_to_show.append(label)
             G.add_node(label, index=i, diff=diff_vector[i])
 
-    included_nodes = set(nodes_to_show)
+    included_nodes = set(nodes_to_show) #restrict edges to nodes we've chosen to include
     #grow edges
     for i in range(0, num_nodes):
         label1 = keyword_dict[linkarray[i][SERIAL_INDEX]]
@@ -120,7 +142,9 @@ def makegraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx):
 
     return newgraph
 
+# make a graph with one node and all its neighbors
 def makezoomgraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx, focused_node):
+    #initialize some stuff, handle our node in focus
     G = nx.DiGraph()
 
     i = focused_node
@@ -135,12 +159,12 @@ def makezoomgraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mt
 
     G.add_node(label1, index=i, diff=diff_vector[i])
 
-    #make edges first, as we'll figure out neighbors along the way
+
     for j in range(0, num_nodes):
         label2 = keyword_dict[linkarray[j][SERIAL_INDEX]]
         p_from_i_to_j = transition_mtx[i,j]
         p_from_j_to_i = transition_mtx[j,i]
-        if (p_from_i_to_j > 0) or (p_from_j_to_i > 0):
+        if (p_from_i_to_j > 0) or (p_from_j_to_i > 0): #if this node is a neighbor
             #add node
             G.add_node(label2, index=j, diff=diff_vector[j])
             nodes_to_show.append(label2)
@@ -155,29 +179,27 @@ def makezoomgraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mt
     newgraph = graphobj(G, nodes_to_show, nodeweights, [], vmin, vmax)
     return newgraph
 
-
+# given a graph object, handle the minutiae of drawing
 def drawgraph(graphobj, filename):
     mycolormap = makecolormap()
     plt.register_cmap(name='BlueRed', data=mycolormap)
     plt.rcParams['image.cmap'] = 'BlueRed'
 
-#    Normalize(vmax=graphobj.vmax, vmin=graphobj.vmin)
-
-#    nx.draw_networkx(graphobj.graph, with_labels=True, node_color=graphobj.nodeweights, edge_color=graphobj.edgeweights, cmap='BlueRed')
-
+    # I've kept these in for the syntax: they're different ways to auto-arrange the nodes.
 #    position = nx.graphviz_layout(graphobj.graph,prog='neato')
 #    position = nx.spectral_layout(graphobj.graph)
-    position = nx.spring_layout(graphobj.graph, weight='weight')
-    nx.draw_networkx(graphobj.graph, pos=position, nodelist=graphobj.nodes_ordered, node_color=graphobj.nodeweights, cmap='BlueRed') #forget about edge colorings for now, they don't look very good
-    plt.savefig(filename)
-    plt.show()
-    plt.close()
+    position = nx.spring_layout(graphobj.graph, weight='weight') #I like this best. It positions nodes closer based on the strength of their connections.
 
+    nx.draw_networkx(graphobj.graph, pos=position, nodelist=graphobj.nodes_ordered, node_color=graphobj.nodeweights, cmap='BlueRed')
+    #forget about edge colorings for now, they don't look very good. may worry about those later.
+    plt.savefig(filename)
+    plt.close()
 
 # --------------------------------------------- Call this to make a graph -------------------------------------------
 
-def do_makegraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx, filename, picklename):
-    newgraph = makegraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx)
+# wrapper for full graph with threshold (use threshold = 0 to get the whole entire graph)
+def do_makegraph(threshold, num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx, filename, picklename):
+    newgraph = makegraph(threshold, num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx)
     if picklename != "":
         f = open(picklename, "w")
         pickle.dump(newgraph, f)
@@ -185,6 +207,7 @@ def do_makegraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx
     drawgraph(newgraph, filename)
     return
 
+# wrapper for one node and neighbors graph
 def do_makezoomgraph(focus_node, num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx, filename, picklename):
     newgraph = makezoomgraph(num_nodes, linkarray, keyword_dict, diff_vector, transition_mtx, focus_node)
     if picklename != "":
@@ -196,8 +219,6 @@ def do_makezoomgraph(focus_node, num_nodes, linkarray, keyword_dict, diff_vector
 
 
 # ------------------------------------------------------ Test ------------------------------------------------------
-
-
 
 if __name__=="__main__":
     #run a test

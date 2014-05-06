@@ -213,7 +213,8 @@ def main():
     print " "
     print kstr
     print " "
-
+    print "Difference vector:"
+    print dv
 
 
     # read to file
@@ -226,7 +227,8 @@ def main():
     f.close()
     
     
-    # make graph
+    # prepare some dummy data for the purpose of constructing graphs
+    # (stands in for keywords)
     d = {}
     for i in range(0,50):
         d[str(i)] = i
@@ -234,13 +236,10 @@ def main():
     for i in range(0,50):
         nodelist.append([str(i)])
 
-
-    # print nodelist
-    # print " "
-    # print d
-
-
-    make_visual.do_makezoomgraph(20,50,nodelist,d,dv,tmSum,"Model_Results/graph2.png","")
+    # Make some graphs.
+    make_visual.do_makegraph(0, 50,nodelist,d,dv,tmSum,"Model_Results/graph_show_all_nodes.png","")
+    make_visual.do_makegraph(0.5, 50,nodelist,d,dv,tmSum,"Model_Results/graph_show_most_deviant_nodes.png","")
+    make_visual.do_makezoomgraph(20,50,nodelist,d,dv,tmSum,"Model_Results/graph_zoom_node20.png","")
     
 
 
